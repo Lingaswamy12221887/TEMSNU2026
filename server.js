@@ -41,8 +41,6 @@ function loadSeed() {
   return seedSiteData();
 }
 
-  delete require.cache[require.resolve('./seed')];
-}
 
 /* ---------- Site data ---------- */
 
