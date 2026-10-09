@@ -8,6 +8,7 @@
  */
 
 require('./lib.env');
+const seedSiteData = require('./seed.js');
 
 const sb = require('./lib.supabase');
 const http = require('http');
@@ -37,13 +38,10 @@ const MIME = {
 };
 
 function loadSeed() {
-  const seedPath = path.join(ROOT, 'seed.js');
-  if (!fs.existsSync(seedPath)) {
-    throw new Error('seed.js is missing from the deployment.');
-  }
+  return seedSiteData();
+}
 
   delete require.cache[require.resolve('./seed')];
-  return require('./seed')();
 }
 
 /* ---------- Site data ---------- */
