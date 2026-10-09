@@ -1,15 +1,19 @@
 
 {
   "version": 2,
-  "functions": {
-    "server.js": {
-      "includeFiles": "seed.js"
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/server.js"
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": "seed.js"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
     }
   ]
 }
