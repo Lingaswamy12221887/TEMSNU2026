@@ -1,0 +1,15 @@
+{
+  "name": "icicse-2027-website",
+  "version": "1.0.0",
+  "description": "ICICSE 2027 conference website with built-in content editor (Supabase storage, no npm dependencies)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "migrate": "node migrate.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
