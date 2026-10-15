@@ -42,18 +42,18 @@ module.exports = function seed() {
   const m = (name, details, phone, email, label) => ({ label: label || '', name, details: details || '', phone: phone || '', email: email || '' });
   const committee = [
     { role: 'General Chair', members: [
-      m('K. Mohan Raidu', 'Chairperson, IEEE CS Hyd. Sec.', '9985033566', 'Kmraidu@gmail.com'),
-      m('Dr. Karthikeyan M', 'SMIEEE, Former Chair, IEEE Podhigai Sub-Section of Madras Section, Dean, School of Engineering, SUH', '8903715518 / 8977736828', 'deansoe@suh.edu.in')] },
-    { role: 'Program Chair', members: [
+      m('K. Mohan Raidu', 'Chairperson, IEEE CS Hyd. Sec.'),
+      m('Dr. Karthikeyan M', 'SMIEEE, Former Chair, IEEE Podhigai Sub-Section of Madras Section, Dean, School of Engineering, SUH')] },
+    { role: 'Program Chairs', members: [
       m('N. Sabitha', 'SBC, IEEE SUH, Hyderabad')] },
     { role: 'Organizing Chair', members: [
-      m('Dr. B. Saritha', 'Prof. CSE, SUH, SMIEEE, Treasurer – IEEE CS Hyderabad Section', '9000801785', 'saritha.b@suh.edu.in')] },
+      m('Dr. B. Saritha', 'Prof. CSE, SUH, SMIEEE, Treasurer IEEE-CS Hyderabad Section')] },
     { role: 'Organizing Co-Chair', members: [
-      m('Dr. Kumaraswamy', 'HoD – CSE-AIML')] },
+      m('Dr. Kumaraswamy', 'HoD-CSE-AIML')] },
     { role: 'Registration Committee Chair', members: [
-      m('Dr. Padmaja', 'HoD, CSE')] },
+      m('Dr. Padmaja', 'HOD, CSE')] },
     { role: 'Technical Program Chair', members: [
-      m('Prof. S. Lakshminarayana', 'Chair, IEEE Vizag Bay Section', '9440190121', 'sln@ieee.org')] },
+      m('Prof. S. Lakshminarayana', 'Chair, IEEE Vizag Bay Section')] },
     { role: 'Finance Committee Chair', members: [
       m('To be announced')] },
     { role: 'Publication Chair', members: [
