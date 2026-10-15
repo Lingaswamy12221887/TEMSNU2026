@@ -246,7 +246,7 @@ module.exports = function seed() {
   ];
 
   return {
-    version: 2,
+    version: 3,
     settings: {
       shortName: 'ICICSE 2027',
       title: title,
