@@ -32,11 +32,11 @@ const colorOf = (c, k) => c[k] || ({ headerBg2: c.headerBg, navActive: c.accent,
 // Main conference logo (header, top-left). Used when no logo image is set in Site settings.
 const DEFAULT_LOGO = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxBwS-zchFgu5kruBk2RFx5CzL9ScNNF7odmd1UoBtGg&s=10';
 // Partner logos (header, top-right). Used when no partner with an image is set in Site settings.
-// Put these image files in your server's /uploads folder.
+// These image files sit in the project root folder and are served by server.js at /<filename>.
 const DEFAULT_PARTNERS = [
-  { name: 'IEEE', url: 'https://www.ieee.org', image: '/uploads/ieee_logos.jpeg' },
-  { name: 'IEEE Hyderabad Section', url: 'https://ieeehyderabad.org', image: '/uploads/ieee_hyderabad_section.jpeg' },
-  { name: 'IEEE Computer Society', url: 'https://www.computer.org', image: '/uploads/ieee_computer_society.jpeg' }
+  { name: 'IEEE', url: 'https://www.ieee.org', image: '/ieee_logos.jpeg' },
+  { name: 'IEEE Hyderabad Section', url: 'https://ieeehyd.org', image: '/ieee_hyderabad_section.jpeg' },
+  { name: 'IEEE Computer Society', url: 'https://www.computer.org', image: '/ieee_computer_society.jpeg' }
 ];
 const partnersOf = s => ((s.partners || []).some(p => p.image) ? s.partners : DEFAULT_PARTNERS);
 
