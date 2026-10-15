@@ -28,6 +28,18 @@ const FONTS = {
 };
 const colorOf = (c, k) => c[k] || ({ headerBg2: c.headerBg, navActive: c.accent, cta: c.accent }[k]) || '#000000';
 
+/* ================= default logos ================= */
+// Main conference logo (header, top-left). Used when no logo image is set in Site settings.
+const DEFAULT_LOGO = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxBwS-zchFgu5kruBk2RFx5CzL9ScNNF7odmd1UoBtGg&s=10';
+// Partner logos (header, top-right). Used when no partner with an image is set in Site settings.
+// Put these image files in your server's /uploads folder.
+const DEFAULT_PARTNERS = [
+  { name: 'IEEE', url: 'https://www.ieee.org', image: '/uploads/ieee_logos.jpeg' },
+  { name: 'IEEE Hyderabad Section', url: 'https://ieeehyderabad.org', image: '/uploads/ieee_hyderabad_section.jpeg' },
+  { name: 'IEEE Computer Society', url: 'https://www.computer.org', image: '/uploads/ieee_computer_society.jpeg' }
+];
+const partnersOf = s => ((s.partners || []).some(p => p.image) ? s.partners : DEFAULT_PARTNERS);
+
 /* ================= tiny DOM helpers ================= */
 const h = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -217,7 +229,8 @@ function renderChrome() {
   elHeader.innerHTML = '';
   const c = h('div', 'container');
   const brand = h('a', 'brand'); brand.href = '/';
-  if (s.logoImage) { const im = h('img', 'logo-img'); im.src = s.logoImage; im.alt = s.shortName + ' logo'; brand.append(im); }
+  const logoSrc = s.logoImage || DEFAULT_LOGO;
+  if (logoSrc) { const im = h('img', 'logo-img'); im.src = logoSrc; im.alt = s.shortName + ' logo'; brand.append(im); }
   else { brand.append(T('div', s, 'logoText', 'logo-badge', { ph: 'LOGO' })); }
   const txt = h('div', 'brand-text');
   txt.append(T('h1', s, 'shortName', 'short'));
@@ -232,7 +245,7 @@ function renderChrome() {
   form.onsubmit = e => { e.preventDefault(); const q = form.querySelector('input').value.trim(); if (q) go('/search?q=' + encodeURIComponent(q)); };
   right.append(form);
   const pr = h('div', 'partners');
-  (s.partners || []).forEach(p => {
+  partnersOf(s).forEach(p => {
     const a = p.url ? link('partner', p.url, '') : h('span', 'partner');
     if (p.image) { const im = h('img'); im.src = p.image; im.alt = p.name; a.append(im); } else a.textContent = p.name;
     pr.append(a);
@@ -591,9 +604,6 @@ function searchPage() {
   return { virtual: true, node, title: 'Search' };
 }
 
-
-
-
 /* ================= admin: modal helper ================= */
 function modal(title, bodyNode, buttons, wide) {
   const ov = h('div', 'overlay'); const m = h('div', 'modal'); if (wide) m.style.maxWidth = wide;
@@ -735,7 +745,7 @@ function settingsEditor() {
   const rm = h('button', 'fbtn', 'Remove logo image'); rm.type = 'button'; rm.style.marginLeft = '8px'; rm.onclick = () => { w.logoImage = ''; toast('Logo image removed — click Apply'); };
   lg.append(up, rm); body.append(lg);
   body.append(h('h4', '', 'Lists (one per line)'));
-  const tl = { v: linesOf(w.topLinks, ['label', 'url']) }, pl = { v: linesOf(w.partners, ['name', 'url', 'image']) }, fl = { v: linesOf(w.footerLinks, ['label', 'url']) }, sl = { v: linesOf(w.socials, ['icon', 'url']) };
+  const tl = { v: linesOf(w.topLinks, ['label', 'url']) }, pl = { v: linesOf(partnersOf(w), ['name', 'url', 'image']) }, fl = { v: linesOf(w.footerLinks, ['label', 'url']) }, sl = { v: linesOf(w.socials, ['icon', 'url']) };
   body.append(field('Top bar links — Label | URL', tl, 'v', 'textarea'), field('Header partner logos — Name | URL | Image URL (optional)', pl, 'v', 'textarea'),
     field('Footer links — Label | URL', fl, 'v', 'textarea'), field('Social icons — Font Awesome class | URL', sl, 'v', 'textarea', 'e.g. fa-brands fa-linkedin-in | https://linkedin.com/…'));
   body.append(h('h4', '', 'Footer text'));
