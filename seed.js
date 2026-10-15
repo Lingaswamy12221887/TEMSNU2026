@@ -41,23 +41,23 @@ module.exports = function seed() {
 
   const m = (name, details, phone, email, label) => ({ label: label || '', name, details: details || '', phone: phone || '', email: email || '' });
   const committee = [
-    { role: 'Core Committee Patrons', members: [
-      m('Dr. K.T. Mahhe', 'Honorable Chancellor', '', '', 'Chief Patron'),
-      m('Mr. Abhijith Rao Katikaneni', 'President', '', '', 'Chief Patron'),
-      m('Dr. P. Narasimha Reddy', 'Pro Chancellor', '', '', 'Patron'),
-      m('Dr. Ananth Padmanaban', 'Vice Chancellor', '', '', 'Patron')] },
-    { role: 'Honorary Chair', members: [
-      m('M.G.P.L. Narayana', 'Chair – IEEE Hyderabad Section, Hyderabad, India & Vice President, TCS [R]', '9848396475', 'mgpl.narayana@gmail.com', 'Honorary Chair')] },
-    { role: 'Conference Chairs', members: [
-      m('Dr. Karthikeyan M', 'Dean, School of Engineering, SUH', '8903715518 / 8977736828', 'deansoe@suh.edu.in', 'General Chair'),
-      m('Dr. Kumaraswamy', 'HoD – CSE-AIML', '', '', 'Organizing Chair'),
-      m('Mrs. N Sabitha', 'IEEE SUH SBC', '', '', 'Organizing Co-Chair'),
-      m('Dr. B Saritha', 'Prof. CSE, SUH, SMIEEE, Treasurer – IEEE CS Hyderabad Section', '', '', 'Organizing Secretary')] },
-    { role: 'Committee Chairs', members: [
-      m('Dr. Padmaja', 'HoD, CSE', '', '', 'Registration Committee Chair'),
-      m('Prof. S. Lakshminarayana', 'Chair, IEEE Vizag Bay Section', '9440190121', 'sln@ieee.org', 'Technical Program Chair'),
-      m('K. Mohan Raidu', 'Chairperson, IEEE CS Hyderabad Section; Director, Informatics India, Hyderabad; Past Chair of ISOC Hyderabad and CSI Hyderabad', '9985033566', 'Kmraidu@gmail.com', 'Finance Committee Chair'),
-      m('Dr. B Saritha', 'Prof. CSE, SUH, SMIEEE, Treasurer – IEEE CS Hyderabad Section', '9000801785', 'saritha.b@suh.edu.in', 'Publication Chair')] }
+    { role: 'General Chair', members: [
+      m('K. Mohan Raidu', 'Chairperson, IEEE CS Hyd. Sec.', '9985033566', 'Kmraidu@gmail.com'),
+      m('Dr. Karthikeyan M', 'SMIEEE, Former Chair, IEEE Podhigai Sub-Section of Madras Section, Dean, School of Engineering, SUH', '8903715518 / 8977736828', 'deansoe@suh.edu.in')] },
+    { role: 'Program Chair', members: [
+      m('N. Sabitha', 'SBC, IEEE SUH, Hyderabad')] },
+    { role: 'Organizing Chair', members: [
+      m('Dr. B. Saritha', 'Prof. CSE, SUH, SMIEEE, Treasurer – IEEE CS Hyderabad Section', '9000801785', 'saritha.b@suh.edu.in')] },
+    { role: 'Organizing Co-Chair', members: [
+      m('Dr. Kumaraswamy', 'HoD – CSE-AIML')] },
+    { role: 'Registration Committee Chair', members: [
+      m('Dr. Padmaja', 'HoD, CSE')] },
+    { role: 'Technical Program Chair', members: [
+      m('Prof. S. Lakshminarayana', 'Chair, IEEE Vizag Bay Section', '9440190121', 'sln@ieee.org')] },
+    { role: 'Finance Committee Chair', members: [
+      m('To be announced')] },
+    { role: 'Publication Chair', members: [
+      m('To be announced')] }
   ];
 
   const title = 'IEEE International Conference on Intelligent, Connected and Sustainable Engineering (ICICSE 2027)';
@@ -203,10 +203,10 @@ module.exports = function seed() {
       '<p>For general enquiries, please write to <a href="mailto:deansoe@suh.edu.in">deansoe@suh.edu.in</a>.</p>' +
       '<h3>Venue</h3><p>Sreenidhi University, Hyderabad, India</p>' +
       '<h3>Key Contacts</h3><ul>' +
+      '<li><strong>General Chair:</strong> K. Mohan Raidu – 9985033566 – <a href="mailto:Kmraidu@gmail.com">Kmraidu@gmail.com</a></li>' +
       '<li><strong>General Chair:</strong> Dr. Karthikeyan M – 8903715518 / 8977736828 – <a href="mailto:deansoe@suh.edu.in">deansoe@suh.edu.in</a></li>' +
-      '<li><strong>Publication Chair:</strong> Dr. B Saritha – 9000801785 – <a href="mailto:saritha.b@suh.edu.in">saritha.b@suh.edu.in</a></li>' +
-      '<li><strong>Technical Program Chair:</strong> Prof. S. Lakshminarayana – 9440190121 – <a href="mailto:sln@ieee.org">sln@ieee.org</a></li>' +
-      '<li><strong>Finance Committee Chair:</strong> K. Mohan Raidu – 9985033566 – <a href="mailto:Kmraidu@gmail.com">Kmraidu@gmail.com</a></li></ul>')
+      '<li><strong>Organizing Chair:</strong> Dr. B. Saritha – 9000801785 – <a href="mailto:saritha.b@suh.edu.in">saritha.b@suh.edu.in</a></li>' +
+      '<li><strong>Technical Program Chair:</strong> Prof. S. Lakshminarayana – 9440190121 – <a href="mailto:sln@ieee.org">sln@ieee.org</a></li></ul>')
   ] };
 
   /* ---------------- MENU ---------------- */
