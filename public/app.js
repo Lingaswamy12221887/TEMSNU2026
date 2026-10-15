@@ -322,7 +322,7 @@ function renderMain() {
   if (page.virtual) { elMain.append(page.node); return; }
   page.sections.forEach((s, i) => elMain.append(renderSection(page, s, i)));
   if (editMode) elMain.append(addSectionBox(page));
-  maybePopup();
+
 }
 
 /* ---- section wrapper with editing toolbar ---- */
@@ -591,19 +591,8 @@ function searchPage() {
   return { virtual: true, node, title: 'Search' };
 }
 
-/* ---- popup ---- */
-function maybePopup() {
-  const p = site.settings.popup; if (!p || !p.enabled || editMode || isAdmin) return;
-  try { if (sessionStorage.getItem('icicse_popup')) return; } catch (e) {}
-  if (currentSlug() !== '' ) return;
-  try { sessionStorage.setItem('icicse_popup', '1'); } catch (e) {}
-  const ov = h('div', 'overlay'); const pop = h('div', 'popup');
-  pop.innerHTML = '<div class="bar"></div><button class="x" aria-label="Close">&times;</button><div class="body"><span class="pb">' + esc(p.badge) + '</span><h3>' + esc(p.title) + '</h3><p>' + esc(p.text) + '</p>' +
-    '<div class="dl"><div class="l">' + esc(p.deadlineLabel) + '</div><div class="v">' + esc(p.deadline) + '</div><div class="n">' + esc(p.deadlineNote) + '</div></div><button class="go">' + esc(p.button) + '</button></div>';
-  const close = () => ov.remove();
-  pop.querySelector('.x').onclick = close; pop.querySelector('.go').onclick = close; ov.onclick = e => { if (e.target === ov) close(); };
-  ov.append(pop); document.body.append(ov);
-}
+
+
 
 /* ================= admin: modal helper ================= */
 function modal(title, bodyNode, buttons, wide) {
