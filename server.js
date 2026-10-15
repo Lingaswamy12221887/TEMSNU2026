@@ -1,4 +1,3 @@
-
 /*
  * ICICSE 2027 Conference Website
  * Node.js + Supabase
@@ -583,6 +582,17 @@ const server = http.createServer(async (req, res) => {
       console.error('Storage error:', error.message);
       return send(res, 502, 'Storage error');
     }
+  }
+
+  // Logo images kept in the project root folder (next to server.js).
+  const ROOT_IMAGES = [
+    'ieee_logos.jpeg',
+    'ieee_hyderabad_section.jpeg',
+    'ieee_computer_society.jpeg'
+  ];
+  const rootName = url.replace(/^\/+/, '');
+  if (ROOT_IMAGES.includes(rootName)) {
+    return serveFile(res, path.join(ROOT, rootName), headOnly);
   }
 
   const file =
