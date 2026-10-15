@@ -181,8 +181,9 @@ module.exports = function seed() {
 
   /* ---------------- PROGRAMS ---------------- */
   const programPages = [
-    [' ['plenary-talks', 'Plenary Talks'], ['keynotes', 'Keynotes'], ['speakers', 'Speakers'],
-    ['workshops', 'Workshops'], ['tutorials', 'Tutorials'], ['industry-forum', 'Industry Forum'],
+    ['invited-guests', 'Invited Guests'], ['plenary-talks', 'Plenary Talks'], ['keynotes', 'Keynotes'], ['speakers', 'Speakers'],
+    ['workshops', 'Workshops'], ['tutorials', 'Tutorials'], ['industry-forum', 'Industry Forum'], ['mentoring-program', 'Mentoring Program'],
+    ['pre-university-stem', 'Pre-University STEM Education'], ['startup-pitch', 'Startup Pitch Competition'], ['3mt-competition', '3MT Competition'],
     ['student-programs', 'All Student Programs'], ['project-expo', 'Project Expo'], ['poster-presentation', 'Poster Presentation Competition'],
     ['btech-innovation', 'B.Tech Innovation Initiative'], ['ideathon', 'Ideathon'], ['special-program', 'Special Program'],
     ['technical-sessions', 'Technical Sessions'], ['yp-programs', 'YP Programs'], ['wie-program', 'Women in Engineering Program']
@@ -215,7 +216,8 @@ module.exports = function seed() {
     L('COMMITTEE', '/committee'),
     L('AUTHORS', '#', [
       L('Instructions for Authors', '/instructions-for-authors'),
-  
+      L('Review Manuscripts', '/review-manuscripts'),
+      L('Camera Ready', '/camera-ready'),
       L('Call for Reviewers', '/contact-us')
     ]),
     L('CALL FOR PAPERS', '/call-for-papers'),
