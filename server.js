@@ -652,8 +652,9 @@ module.exports = async function handler(req, res) {
 
     if (!res.headersSent && !res.writableEnded) {
       send(res, 500, {
-        error: 'Server initialization failed. Check Vercel runtime logs.'
-      });
+  error: 'Server initialization failed. Check Vercel runtime logs.',
+  reason: String(error && error.message || error).slice(0, 400)
+});
     }
   }
 };
