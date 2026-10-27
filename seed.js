@@ -191,11 +191,14 @@ module.exports = function seed() {
   programPages.forEach(([slug, t]) => { pages[slug] = simplePage(t, soon); });
 
   /* ---------------- TRAVEL ---------------- */
-  pages['visa'] = simplePage('Visa', 'International delegates who need a visa to travel to India should apply well in advance through the Indian mission in their country. Detailed guidance will be published here.');
-  pages['visa-letter'] = simplePage('Visa Letter Request', 'Registered authors who need an invitation letter for a visa application can request one by contacting the organisers using the details on the Contact Us page.');
-  pages['hotels'] = simplePage('Hotel Information', 'Information on recommended hotels and special delegate rates near the venue will be published here.');
-  pages['places'] = simplePage('Local Attractions', 'Hyderabad offers a rich blend of history, culture and technology. Suggestions for sightseeing during your visit will be added here.');
-  pages['venue'] = simplePage('Venue Information', 'ICICSE 2027 will be held at <strong>Sreenidhi University</strong>. Campus address, map and travel directions will be published here.');
+pages['venue'] = simplePage(
+  'Venue Information',
+  'ICICSE 2027 will be held at <strong>Sreenidhi University</strong>, Hyderabad.',
+  '<p><a href="https://maps.app.goo.gl/H8GPjNzbgWxHojsn9" target="_blank" rel="noopener">📍 Open in Google Maps</a></p>' +
+  '<iframe src="https://maps.google.com/maps?q=17.4571986,78.6652322&z=15&output=embed" ' +
+  'width="100%" height="420" style="border:0;border-radius:8px" loading="lazy" ' +
+  'referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>'
+);
 
   pages['sponsorship'] = simplePage('Sponsorships', 'ICICSE 2027 welcomes sponsors and exhibitors from industry and institutions who wish to support engineering research and innovation. Sponsorship packages will be published here; for early enquiries please use the Contact Us page.');
   pages['contact-us'] = { title: 'Contact Us', sections: [
