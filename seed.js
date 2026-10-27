@@ -249,7 +249,7 @@ pages['venue'] = simplePage(
   ];
 
   return {
-    version: 3,
+    version: 4,
     settings: {
       shortName: 'ICICSE 2027',
       title: title,
